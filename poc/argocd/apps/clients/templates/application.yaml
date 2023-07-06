@@ -1,0 +1,16 @@
+{{- range .Values.services }}
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: ${{ .name }}
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/alanbruhns/poc-argocd.git
+    targetRevision: poc/argocd-apps
+    path: poc/argocd/apps/services/${{ .name }}
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: ${{ .name }}
+{{- end}}

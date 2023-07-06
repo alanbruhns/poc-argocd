@@ -1,0 +1,3 @@
+services:
+  - name: nginx
+  - name: azure-resources

@@ -1,0 +1,4 @@
+---
+apiVersion: v2
+name: azure-resources
+version: 0.2.0
