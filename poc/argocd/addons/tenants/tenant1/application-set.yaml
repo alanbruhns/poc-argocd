@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: {{ .name }}
+  name: tenant1 # TODO Template {{ .name }}
   namespace: argocd
 spec:
   generators:
@@ -21,4 +21,4 @@ spec:
         path: '{{`{{path}}`}}'
       destination:
         server: https://kubernetes.default.svc
-        namespace: '{{  .name }}'
+        namespace: tenant1 # TODO Template'{{  .name }}'
